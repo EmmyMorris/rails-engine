@@ -13,6 +13,9 @@ describe "Merchants API" do
     expect(merchants.count).to eq(3)
 
     merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id]).to be_an(Integer)
+
       expect(merchant).to have_key(:name)
       expect(merchant[:name]).to be_an(String)
     end
@@ -26,6 +29,9 @@ describe "Merchants API" do
     merchant = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
+
+    expect(merchant).to have_key(:id)
+    expect(merchant[:id]).to be_an(Integer)
 
     expect(merchant).to have_key(:name)
     expect(merchant[:name]).to be_an(String)

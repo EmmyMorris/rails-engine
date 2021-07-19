@@ -25,6 +25,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           1,
@@ -36,6 +37,20 @@
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          3,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -153,6 +168,6 @@
         }
       }
     },
-    "timestamp": 1626732880
+    "timestamp": 1626733781
   }
 }
