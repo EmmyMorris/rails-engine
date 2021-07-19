@@ -1,12 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/customer.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
           1,
           1,
-          null,
-          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -20,67 +20,21 @@
           null
         ]
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice_item.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
-          null,
-          null,
+          1,
           null,
           null,
           1,
           1,
-          1,
+          null,
           null
         ]
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/item.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/merchant.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/transaction.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null,
           1,
           null
         ]
@@ -95,15 +49,82 @@
         "branches": {
         }
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/jobs/application_job.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/application_controller.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/customer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice_item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/transaction.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/jobs/application_job.rb": {
         "lines": [
           0,
           0
@@ -132,6 +153,6 @@
         }
       }
     },
-    "timestamp": 1626728365
+    "timestamp": 1626732880
   }
 }
