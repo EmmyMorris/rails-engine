@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  type :item
+  # type :item
   attributes :id, :name, :description, :unit_price, :merchant
   # def self.format_items(items)
   #   items.map do |item|
