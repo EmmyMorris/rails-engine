@@ -9,7 +9,7 @@ describe "Items API" do
     expect(response).to be_successful
 
     items = JSON.parse(response.body, symbolize_names: true)
-=    expect(items).not_to be_empty
+    expect(items).not_to be_empty
     expect(items.count).to eq(3)
 
     items.each do |item|
