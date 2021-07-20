@@ -1,14 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/item.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
           1,
           1,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -22,24 +20,19 @@
           null
         ]
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/merchant.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
+          null,
+          null,
+          2,
+          2,
+          2,
+          null,
+          null,
           1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
+          2,
           null,
           null
         ]
@@ -50,13 +43,13 @@
           null
         ]
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/item_serializer.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/merchant_serializer.rb": {
         "lines": [
           1,
           1,
           1,
           null,
-          3,
+          null,
           null,
           null,
           null,
@@ -84,6 +77,22 @@
           null,
           0,
           0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/item.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -135,17 +144,22 @@
         "branches": {
         }
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/item_serializer.rb": {
         "lines": [
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           0
         ],
         "branches": {
@@ -159,14 +173,9 @@
         "branches": {
         }
       },
-      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+      "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
           0,
-          0,
-          0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -196,6 +205,6 @@
         }
       }
     },
-    "timestamp": 1626742537
+    "timestamp": 1626812722
   }
 }
