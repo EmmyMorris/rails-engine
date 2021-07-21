@@ -1,12 +1,6 @@
-class MerchantSerializer < ActiveModel::Serializer
-  # type :merchant
-  attributes :id, :name
-  # def self.format_merchants(merchants)
-  #   merchants.map do |merchant|
-  #     {
-  #       id: merchant.id,
-  #       name: merchant.name
-  #     }
-  #   end
-  # end
+class MerchantSerializer
+  include FastJsonapi::ObjectSerializer
+  attribute :name
+  set_type :merchant
+  set_key_transform :dash
 end
