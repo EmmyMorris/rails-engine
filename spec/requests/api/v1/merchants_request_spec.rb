@@ -1,16 +1,18 @@
 require 'rails_helper'
 
-describe "Merchants API" do
+describe "All Merchants" do
   before :each do
     Merchant.destroy_all
-    @all_merchants = create_list(:merchant, 50)
+    @all_merchants = create_list(:merchant, 100)
   end
-  it "sends all merchants" do
+
+  it "happy path, fetching all merchants" do
     get '/api/v1/merchants'
-
     expect(response).to be_successful
+
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -21,13 +23,13 @@ describe "Merchants API" do
     end
   end
 
-  it "sends all merchants on first page" do
-    get '/api/v1/merchants?page=1&per_page=20'
-
+  it "happy path, fetching page 1 is the same list of first 20 in db" do
+    get '/api/v1/merchants?page=1'
     expect(response).to be_successful
 
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -38,13 +40,13 @@ describe "Merchants API" do
     end
   end
 
-  it "sends all merchants on first page if page is < 0" do
-    get '/api/v1/merchants?page=0&per_page=20'
-
+  it "sad path, fetching page 1 if page is 0 or lower" do
+    get '/api/v1/merchants?page=0'
     expect(response).to be_successful
 
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -55,39 +57,71 @@ describe "Merchants API" do
     end
   end
 
-  describe 'GET /api/v1/merchants/:id' do
-    context 'when the record exists' do
-      it "can get one merchant by its id" do
-        id = @all_merchants[0].id
-        get "/api/v1/merchants/#{id}"
-        parsed_merchants = JSON.parse(response.body, symbolize_names: true)
-        @merchants = parsed_merchants[:data][:attributes]
-        expect(@merchants).not_to be_empty
-        expect(@merchants.count).to eq(1)
-        expect(parsed_merchants.count).to eq(1)
-        expect(parsed_merchants[:data][:id].to_i).to eq(id)
-        expect(response).to be_successful
-      end
+  it "happy path, fetch second page of 20 merchants" do
+    get '/api/v1/merchants?page=2'
+    expect(response).to be_successful
 
-      it 'returns status code 200' do
-        id = @all_merchants[0].id
-        get "/api/v1/merchants/#{id}"
-        @merchants = JSON.parse(response.body, symbolize_names: true)
-        expect(response).to be_successful
-        expect(response).to have_http_status(200)
-      end
+    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
+    merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
+    expect(merchants.count).to eq(20)
+
+    merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_an(String)
     end
+  end
 
-    # context 'when the record does not exist' do
-    #   it 'returns status code 404' do
-    #     get "/api/v1/merchants/100"
-    #     expect(response).to have_http_status(404)
-    #   end
-    #
-    #   it 'returns a not found message' do
-    #     get "/api/v1/merchants/100"
-    #     expect(response.body).to match(/Couldn't find Merchant/)
-    #   end
-    # end
+  it "happy path, fetch first page of 50 merchants" do
+    get '/api/v1/merchants?per_page=50'
+    expect(response).to be_successful
+
+    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
+    merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
+    expect(merchants.count).to eq(50)
+
+    merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_an(String)
+    end
+  end
+
+  it "happy path, fetch a page of merchants which would contain no data" do
+    get '/api/v1/merchants?page=200'
+    expect(response).to be_successful
+
+    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
+    merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
+    expect(merchants.count).to eq(0)
+
+    merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_an(String)
+    end
+  end
+
+  it "happy path, fetch all merchants if per page is really big" do
+    get '/api/v1/merchants?per_page=200'
+    expect(response).to be_successful
+
+    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
+    merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
+    expect(merchants.count).to eq(100)
+
+    merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_an(String)
+    end
   end
 end
