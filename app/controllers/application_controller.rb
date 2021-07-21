@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+
   def page_number
     if params[:page].to_i >= 1
        params[:page].to_i || 1

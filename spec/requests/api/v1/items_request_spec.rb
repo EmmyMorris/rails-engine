@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe "Items API" do
+describe "All Items" do
   before :each do
     Item.destroy_all
     @all_items = create_list(:item, 50)
   end
 
-  it "sends all items" do
+  it "happy path, fetch all items" do
     get '/api/v1/items'
 
     expect(response).to be_successful
