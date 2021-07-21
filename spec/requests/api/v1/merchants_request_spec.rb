@@ -64,6 +64,7 @@ describe "Merchants API" do
         @merchants = parsed_merchants[:data][:attributes]
         expect(@merchants).not_to be_empty
         expect(@merchants.count).to eq(1)
+        expect(parsed_merchants.count).to eq(1)
         expect(parsed_merchants[:data][:id].to_i).to eq(id)
         expect(response).to be_successful
       end
