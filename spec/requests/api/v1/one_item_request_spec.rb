@@ -19,12 +19,12 @@ describe "One Item" do
       expect(response).to be_successful
     end
 
-    xit "sad path, bad integer id returns 404" do
+    it "sad path, bad integer id returns 404" do
       get "/api/v1/items/8923987297"
       expect(response).to have_http_status(404)
     end
 
-    xit "edge case, string id returns 404" do
+    it "edge case, string id returns 404" do
       get "/api/v1/items/string-instead-of-integer"
       expect(response).to have_http_status(404)
     end
