@@ -13,6 +13,7 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -30,6 +31,7 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -40,22 +42,6 @@ describe "All Merchants" do
     end
   end
 
-  it "sad path, fetching page 1 if page is 0 or lower" do
-    get '/api/v1/merchants?page=0'
-    expect(response).to be_successful
-
-    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
-    merchants = parsed_merchants[:data]
-    expect(merchants).to be_an(Array)
-    expect(merchants.count).to eq(20)
-
-    merchants.each do |merchant|
-      expect(merchant).to have_key(:id)
-      expect(merchant[:id].to_i).to be_an(Integer)
-      expect(merchant[:attributes]).to have_key(:name)
-      expect(merchant[:attributes][:name]).to be_an(String)
-    end
-  end
 
   it "happy path, fetch second page of 20 merchants" do
     get '/api/v1/merchants?page=2'
@@ -64,6 +50,7 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
     expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
@@ -81,6 +68,7 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
     expect(merchants.count).to eq(50)
 
     merchants.each do |merchant|
@@ -98,6 +86,7 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).to be_empty
     expect(merchants.count).to eq(0)
 
     merchants.each do |merchant|
@@ -115,7 +104,26 @@ describe "All Merchants" do
     parsed_merchants = JSON.parse(response.body, symbolize_names: true)
     merchants = parsed_merchants[:data]
     expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
     expect(merchants.count).to eq(100)
+
+    merchants.each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_an(String)
+    end
+  end
+  
+  it "sad path, fetching page 1 if page is 0 or lower" do
+    get '/api/v1/merchants?page=0'
+    expect(response).to be_successful
+
+    parsed_merchants = JSON.parse(response.body, symbolize_names: true)
+    merchants = parsed_merchants[:data]
+    expect(merchants).to be_an(Array)
+    expect(merchants).not_to be_empty
+    expect(merchants.count).to eq(20)
 
     merchants.each do |merchant|
       expect(merchant).to have_key(:id)
