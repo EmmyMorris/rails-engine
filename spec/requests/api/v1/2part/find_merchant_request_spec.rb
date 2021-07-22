@@ -12,7 +12,7 @@ describe "Find One Merchant" do
 
     parsed_merchant = JSON.parse(response.body, symbolize_names: true)
     merchant = parsed_merchant[:data]
-
+    
     expect(merchant).to be_an(Hash)
     expect(parsed_merchant.count).to eq(1)
     expect(merchant.count).to eq(3)

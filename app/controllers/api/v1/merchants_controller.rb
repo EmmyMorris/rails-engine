@@ -11,7 +11,7 @@ class Api::V1::MerchantsController < ApplicationController
 
   def find
     if params[:name] && !params[:name].empty?
-      m = Merchant.where("name ILIKE ?", "%#{params[:name]}%").first
+      m = Merchant.where("name ILIKE ?", "%#{params[:name]}%").order(:name).first
       if m
         render json: MerchantSerializer.new(m).serialized_json, status: :ok
       else
