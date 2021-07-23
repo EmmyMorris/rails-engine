@@ -7,8 +7,6 @@ class ApplicationController < ActionController::API
     yield
   rescue ActiveRecord::RecordNotFound => e
     render_api_error(e.message, 404)
-  rescue ActiveRecord::RecordInvalid => e
-    render_api_error(e.record.errors.full_messages, 422)
   end
 
   def render_api_error(messages, code)

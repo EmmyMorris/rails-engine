@@ -21,8 +21,6 @@ module Api
           else
             render json: { data: {} }, status: :ok
           end
-        else
-          render json: {}, status: :bad_request
         end
       end
     end
