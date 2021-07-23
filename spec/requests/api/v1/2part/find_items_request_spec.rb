@@ -12,11 +12,9 @@ describe "Finds All Items" do
 
     parsed_items = JSON.parse(response.body, symbolize_names: true)
     items = parsed_items[:data]
-    # require "pry"; binding.pry
 
     expect(items).to be_an(Array)
     expect(items).not_to be_empty
-    # expect(items.count).to eq(20)
 
     items.each do |item|
       expect(item).to have_key(:id)
@@ -35,9 +33,9 @@ describe "Finds All Items" do
   it "sad path, no fragment matched" do
     get '/api/v1/items/find_all?name=NOMATCH'
 
-    parsed_merchant = JSON.parse(response.body, symbolize_names: true)
-    merchant = parsed_merchant[:data]
-    expect(merchant).to be_an(Array)
+    parsed_item = JSON.parse(response.body, symbolize_names: true)
+    item = parsed_item[:data]
+    expect(item).to be_an(Array)
     expect(response).to have_http_status(200)
   end
 end
