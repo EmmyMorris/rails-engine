@@ -61,7 +61,7 @@ describe Merchant do
     end
 
     it "top_revenue" do
-      expect(Merchant.top_revenue(1)).to eq([@merchant1])
+      expect(Merchant.most_revenue(1)).to eq([@merchant1])
     end
   end
 end
