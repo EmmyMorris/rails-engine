@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "One Merchant" do
+describe 'One Merchant' do
   context 'Get One Merchant' do
-    it "happy path, fetch one merchant by id" do
+    it 'happy path, fetch one merchant by id' do
       @merchant = create(:merchant)
       id = @merchant.id
       get "/api/v1/merchants/#{id}"
@@ -18,8 +20,8 @@ describe "One Merchant" do
       expect(parsed_merchants[:data][:id].to_i).to eq(id)
     end
 
-    it "sad path, bad integer id returns 404" do
-      get "/api/v1/merchants/8923987297"
+    it 'sad path, bad integer id returns 404' do
+      get '/api/v1/merchants/8923987297'
       expect(response).to have_http_status(404)
     end
   end

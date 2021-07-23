@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "One Item" do
+describe 'One Item' do
   context 'Get One Item' do
-    it "happy path, fetch one item by id" do
+    it 'happy path, fetch one item by id' do
       @item = create(:item)
       id = @item.id
       get "/api/v1/items/#{id}"
@@ -19,13 +21,13 @@ describe "One Item" do
       expect(response).to be_successful
     end
 
-    it "sad path, bad integer id returns 404" do
-      get "/api/v1/items/8923987297"
+    it 'sad path, bad integer id returns 404' do
+      get '/api/v1/items/8923987297'
       expect(response).to have_http_status(404)
     end
 
-    it "edge case, string id returns 404" do
-      get "/api/v1/items/string-instead-of-integer"
+    it 'edge case, string id returns 404' do
+      get '/api/v1/items/string-instead-of-integer'
       expect(response).to have_http_status(404)
     end
   end

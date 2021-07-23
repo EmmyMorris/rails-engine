@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "A Merchants Items" do
+describe 'A Merchants Items' do
   before :each do
     Merchant.destroy_all
     @merchant = create(:merchant)
@@ -12,7 +14,7 @@ describe "A Merchants Items" do
     @merchant_items = @parsed_merchant_items[:data]
   end
 
-  it "happy path, fetch all items" do
+  it 'happy path, fetch all items' do
     expect(response).to have_http_status(200)
     expect(response).to be_successful
 
@@ -24,8 +26,8 @@ describe "A Merchants Items" do
     expect(@merchant_items[2][:id].to_i).to eq(@item3.id)
   end
 
-  it "sad path, bad integer id returns 404" do
-    get "/api/v1/merchants/8923987297/items"
+  it 'sad path, bad integer id returns 404' do
+    get '/api/v1/merchants/8923987297/items'
     expect(response).to have_http_status(404)
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MerchantSerializer
   include FastJsonapi::ObjectSerializer
   attribute :name

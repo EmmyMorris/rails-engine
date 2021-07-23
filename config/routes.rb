@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
@@ -5,11 +7,11 @@ Rails.application.routes.draw do
       get '/merchants/find', to: 'merchants#find'
       get '/items/find_all', to: 'items#find_all'
       get '/revenue/merchants', to: 'revenues#top_merchants'
-      resources :merchants, only: [:index, :show] do
+      resources :merchants, only: %i[index show] do
         resources :items, only: [:index], controller: :merchant_items
       end
-      resources :items, only: [:index, :show]
-      resources :items, only: [:index, :show]
+      resources :items, only: %i[index show]
+      resources :items, only: %i[index show]
     end
   end
 end

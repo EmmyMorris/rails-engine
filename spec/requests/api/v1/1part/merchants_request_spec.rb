@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "All Merchants" do
+describe 'All Merchants' do
   before :each do
     Merchant.destroy_all
     @all_merchants = create_list(:merchant, 100)
   end
 
-  it "happy path, fetching all merchants" do
+  it 'happy path, fetching all merchants' do
     get '/api/v1/merchants'
     expect(response).to be_successful
 
@@ -24,7 +26,7 @@ describe "All Merchants" do
     end
   end
 
-  it "happy path, fetching page 1 is the same list of first 20 in db" do
+  it 'happy path, fetching page 1 is the same list of first 20 in db' do
     get '/api/v1/merchants?page=1'
     expect(response).to be_successful
 
@@ -42,8 +44,7 @@ describe "All Merchants" do
     end
   end
 
-
-  it "happy path, fetch second page of 20 merchants" do
+  it 'happy path, fetch second page of 20 merchants' do
     get '/api/v1/merchants?page=2'
     expect(response).to be_successful
 
@@ -61,7 +62,7 @@ describe "All Merchants" do
     end
   end
 
-  it "happy path, fetch first page of 50 merchants" do
+  it 'happy path, fetch first page of 50 merchants' do
     get '/api/v1/merchants?per_page=50'
     expect(response).to be_successful
 
@@ -79,7 +80,7 @@ describe "All Merchants" do
     end
   end
 
-  it "happy path, fetch a page of merchants which would contain no data" do
+  it 'happy path, fetch a page of merchants which would contain no data' do
     get '/api/v1/merchants?page=200'
     expect(response).to be_successful
 
@@ -97,7 +98,7 @@ describe "All Merchants" do
     end
   end
 
-  it "happy path, fetch all merchants if per page is really big" do
+  it 'happy path, fetch all merchants if per page is really big' do
     get '/api/v1/merchants?per_page=200'
     expect(response).to be_successful
 
@@ -114,8 +115,8 @@ describe "All Merchants" do
       expect(merchant[:attributes][:name]).to be_an(String)
     end
   end
-  
-  it "sad path, fetching page 1 if page is 0 or lower" do
+
+  it 'sad path, fetching page 1 if page is 0 or lower' do
     get '/api/v1/merchants?page=0'
     expect(response).to be_successful
 

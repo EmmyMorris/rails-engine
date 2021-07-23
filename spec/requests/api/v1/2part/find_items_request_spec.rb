@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "Finds All Items" do
+describe 'Finds All Items' do
   before :each do
     Item.destroy_all
     @all_items = create_list(:item, 200)
   end
 
-  it "happy path, fetch all items matching a pattern" do
+  it 'happy path, fetch all items matching a pattern' do
     get '/api/v1/items/find_all?name=hA'
     expect(response).to be_successful
 
@@ -30,7 +32,7 @@ describe "Finds All Items" do
     end
   end
 
-  it "sad path, no fragment matched" do
+  it 'sad path, no fragment matched' do
     get '/api/v1/items/find_all?name=NOMATCH'
 
     parsed_item = JSON.parse(response.body, symbolize_names: true)

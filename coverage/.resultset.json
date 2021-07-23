@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/customer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -15,6 +17,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -22,6 +26,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice_item.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -36,6 +42,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/invoice.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -50,6 +58,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/item.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -64,6 +74,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -86,6 +98,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/models/transaction.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -97,6 +111,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/item_serializer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -107,6 +123,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/serializers/merchant_serializer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -117,6 +135,10 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
+          null,
+          null,
+          1,
+          1,
           1,
           1,
           7,
@@ -132,13 +154,16 @@
           2,
           2,
           null,
+          null,
+          null,
           null
         ]
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
-          1,
           null,
+          null,
+          1,
           1,
           null,
           1,
@@ -176,17 +201,27 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/merchant_items_controller.rb": {
         "lines": [
+          null,
+          null,
+          1,
+          1,
           1,
           1,
           3,
           2,
           2,
           null,
+          null,
+          null,
           null
         ]
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
+          null,
+          null,
+          1,
+          1,
           1,
           1,
           7,
@@ -210,11 +245,15 @@
           0,
           null,
           null,
+          null,
+          null,
           null
         ]
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/mailers/application_mailer.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -225,6 +264,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/jobs/application_job.rb": {
         "lines": [
+          null,
+          null,
           0,
           0
         ],
@@ -233,6 +274,12 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/controllers/api/v1/revenues_controller.rb": {
         "lines": [
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -245,6 +292,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/channels/application_cable/connection.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -255,6 +304,8 @@
       },
       "/Users/emmymorris/turing/3module/projects/rails-engine/app/channels/application_cable/channel.rb": {
         "lines": [
+          null,
+          null,
           0,
           0,
           0,
@@ -264,6 +315,6 @@
         }
       }
     },
-    "timestamp": 1627009667
+    "timestamp": 1627010044
   }
 }

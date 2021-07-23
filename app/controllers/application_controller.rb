@@ -1,28 +1,29 @@
-class ApplicationController < ActionController::API
+# frozen_string_literal: true
 
+class ApplicationController < ActionController::API
   around_action :handle_errors
 
-    def handle_errors
-      yield
-    rescue ActiveRecord::RecordNotFound => e
-      render_api_error(e.message, 404)
-    rescue ActiveRecord::RecordInvalid => e
-      render_api_error(e.record.errors.full_messages, 422)
-    end
+  def handle_errors
+    yield
+  rescue ActiveRecord::RecordNotFound => e
+    render_api_error(e.message, 404)
+  rescue ActiveRecord::RecordInvalid => e
+    render_api_error(e.record.errors.full_messages, 422)
+  end
 
-    def render_api_error(messages, code)
-      data = { errors: { code: code, details: Array.wrap(messages) } }
-      render json: data, status: code
-    end
+  def render_api_error(messages, code)
+    data = { errors: { code: code, details: Array.wrap(messages) } }
+    render json: data, status: code
+  end
 
   def page_number
-    if params[:page].nil?
-       page = params[:page] = 1
-    elsif params[:page] == "0"
-      page = params[:page] = 1
-    else
-      page = params[:page].to_i
-    end
+    page = if params[:page].nil?
+             params[:page] = 1
+           elsif params[:page] == '0'
+             params[:page] = 1
+           else
+             params[:page].to_i
+           end
   end
 
   def per_page
