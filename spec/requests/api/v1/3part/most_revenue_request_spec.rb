@@ -6,7 +6,7 @@ describe "Merchants with Most Revenue" do
     @all_merchants = create_list(:merchant, 100)
   end
 
-  it "happy path, fetch top 10 merchants by revenue" do
+  xit "happy path, fetch top 10 merchants by revenue" do
     get '/api/v1/revenue/merchants?quantity=10'
     expect(response).to be_successful
 
@@ -24,7 +24,7 @@ describe "Merchants with Most Revenue" do
     end
   end
 
-  it "happy path, top one merchant by revenue" do
+  xit "happy path, top one merchant by revenue" do
     get '/api/v1/revenue/merchants?quantity=1'
     expect(response).to be_successful
 
@@ -42,7 +42,7 @@ describe "Merchants with Most Revenue" do
     end
   end
 
-  it "happy path, all 100 merchants if quantity is too big" do
+  xit "happy path, all 100 merchants if quantity is too big" do
     get '/api/v1/revenue/merchants?quantity=1000000'
     expect(response).to be_successful
 
@@ -60,7 +60,7 @@ describe "Merchants with Most Revenue" do
     end
   end
 
-  it "edge case sad path, quantity param is missing" do
+  xit "edge case sad path, quantity param is missing" do
     get '/api/v1/revenue/merchants'
     expect(response).to be_successful
     expect(response).to have_http_status(400)
@@ -71,7 +71,7 @@ describe "Merchants with Most Revenue" do
     expect(merchants).to be_empty
   end
 
-  it "sad path, returns an error of some sort if quantity value is blank" do
+  xit "sad path, returns an error of some sort if quantity value is blank" do
     get '/api/v1/revenue/merchants?quantity='
     expect(response).to be_successful
     expect(response).to have_http_status(400 || 500)
@@ -82,7 +82,7 @@ describe "Merchants with Most Revenue" do
     expect(merchants).to be_empty
   end
 
-  it "sad path, returns an error of some sort if quantity is a string" do
+  xit "sad path, returns an error of some sort if quantity is a string" do
     get '/api/v1/revenue/merchants?quantity=asdasd'
     expect(response).to be_successful
     expect(response).to have_http_status(400 || 500)
